@@ -1,4 +1,4 @@
-*.properties
+resources/*.properties
 /.idea
 /.gradle
 /build

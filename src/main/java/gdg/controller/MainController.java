@@ -8,5 +8,6 @@ public class MainController {
 
     @GetMapping(value = "/test")
     public void test(){
+        System.out.println("-----------tt");
     }
 }

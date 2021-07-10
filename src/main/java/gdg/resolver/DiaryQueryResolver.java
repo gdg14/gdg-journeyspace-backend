@@ -3,15 +3,15 @@ package gdg.resolver;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import gdg.domain.Comment;
 import gdg.domain.Diary;
-import gdg.domain.Usr;
+import gdg.domain.Favorite;
 import gdg.domain.repository.CommentRepository;
 import gdg.domain.repository.DiaryRepository;
-import gdg.domain.repository.UsrRepository;
+import gdg.domain.repository.FavoriteRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.transaction.Transactional;
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -20,6 +20,7 @@ import java.util.List;
 public class DiaryQueryResolver implements GraphQLQueryResolver {
     private final DiaryRepository diaryRepository;
     private final CommentRepository commentRepository;
+    private final FavoriteRepository favoriteRepository;
 
     public List<Diary> getDiaryListByUsr(String usrId){
         log.info("-----" + usrId);
@@ -53,4 +54,5 @@ public class DiaryQueryResolver implements GraphQLQueryResolver {
         return commentRepository.findByDiaryId(diaryId);
     }
 
+    public Favorite getFavorite(String usrId, Long diaryId){return favoriteRepository.findFavorite(usrId, diaryId);}
 }

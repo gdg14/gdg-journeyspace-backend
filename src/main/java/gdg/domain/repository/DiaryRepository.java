@@ -38,7 +38,7 @@ public class DiaryRepository {
 
     public List<Diary> findDiary(){
         try{
-            return em.createQuery("select d from Diary d where publicYN = 'Y'",Diary.class)
+            return em.createQuery("select d from Diary d where publicYN != 'N'",Diary.class)
                     .getResultList();
         }catch (Exception e){
             log.error("findDiary" + e);

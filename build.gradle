@@ -26,6 +26,7 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat'
     runtimeOnly 'mysql:mysql-connector-java'
+    runtimeOnly("com.graphql-java-kickstart:playground-spring-boot-starter:6.0.1")
     // https://mvnrepository.com/artifact/com.graphql-java/graphql-java-tools
     //implementation group: 'com.graphql-java', name: 'graphql-java-tools', version: '2.1.3'
 

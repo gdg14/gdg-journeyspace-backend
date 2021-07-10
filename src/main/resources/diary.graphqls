@@ -1,0 +1,40 @@
+type Query{
+    #랜덤일기 띄우기
+    getDiaryList:[Diary]
+    #유저의 일기목록
+    getDiaryListByUsr(usrId: String!): [Diary]
+    # 캘린더에서 날짜 선택한 경우 등 단건조회
+    getDiaryById(id: Int!):Diary
+    # 각 월별 조회
+    getDiaryByMonth(yyyymm: String!):[Diary]
+}
+
+type Mutation{
+    saveDiary(usrId:String!, title:String!, content:String!, feelings:String!, category: String!
+    publicYN:String!):Boolean
+}
+
+type Diary{
+    id:Int
+    usr:Usr
+    title: String
+    content: String
+    feelings: String
+    photo1: String
+    photo2: String
+    photo3: String
+    category: String
+    publicYN : String
+}
+
+type Comment{
+    id:Int
+    usr:Usr
+    diary:Diary
+    content:String
+}
+
+type Usr{
+    id:String
+    name:String
+}

@@ -13,13 +13,15 @@ type Query{
     #    아니면 댓글 안보임
     #
     #    댓글 등록/수정/삭제
+
+    getFavorite(usrId:String! diaryId:Int!):Favorite
 }
 
 type Mutation{
     saveDiary(usrId:String!, title:String!, content:String!, feelings:String!, category: String!
     publicYN:String!):Boolean
-
     saveComment(usrId:String!,diaryId:Int!, content:String!):Boolean
+    saveFavorite(usrId:String! diaryId:Int!):Boolean
 }
 
 type Diary{
@@ -35,7 +37,6 @@ type Diary{
     publicYN : String
     regDtm : String
 }
-# 다른사람이 쓴 댓글은 안보이게..
 type Comment{
     content:String
     usr:Usr
@@ -45,4 +46,11 @@ type Comment{
 type Usr{
     id:String
     name:String
+}
+
+type Favorite{
+    usr:Usr
+    diary:Diary
+    regDtm:String
+    updtDtm:String
 }

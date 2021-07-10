@@ -31,7 +31,18 @@ public class DiaryQueryResolver implements GraphQLQueryResolver {
     }
 
     public List<Diary> getDiaryList(){
-        return diaryRepository.findDiary();
+        List<Diary> list = diaryRepository.findDiary();
+        for (Diary diary:
+             list) {
+            log.info(diary.getId()+"");
+        }
+        log.info("--------------------");
+        Collections.shuffle(list);
+        for (Diary diary:
+                list) {
+            log.info(diary.getId()+"");
+        }
+        return list;
     }
 
     public List<Diary> getDiaryByMonth(String yyyymm){

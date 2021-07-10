@@ -17,11 +17,19 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    implementation 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
     implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:6.0.1' //graphql
     runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:6.0.1'   //graphql
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation group: 'com.h2database', name: 'h2', version: '1.4.197'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-tomcat
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat'
+    runtimeOnly 'mysql:mysql-connector-java'
+    // https://mvnrepository.com/artifact/com.graphql-java/graphql-java-tools
+    //implementation group: 'com.graphql-java', name: 'graphql-java-tools', version: '2.1.3'
+
+
 }
 
 test {

@@ -1,8 +1,10 @@
 package gdg.resolver;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import gdg.domain.Comment;
 import gdg.domain.Diary;
 import gdg.domain.Usr;
+import gdg.domain.repository.CommentRepository;
 import gdg.domain.repository.DiaryRepository;
 import gdg.domain.repository.UsrRepository;
 import lombok.RequiredArgsConstructor;
@@ -15,8 +17,9 @@ import java.util.List;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class DiaryResolver implements GraphQLQueryResolver {
+public class DiaryQueryResolver implements GraphQLQueryResolver {
     private final DiaryRepository diaryRepository;
+    private final CommentRepository commentRepository;
 
     public List<Diary> getDiaryListByUsr(String usrId){
         log.info("-----" + usrId);
@@ -35,5 +38,8 @@ public class DiaryResolver implements GraphQLQueryResolver {
         return diaryRepository.findDiaryByMonth(yyyymm);
     }
 
+    public List<Comment> getComments(Long diaryId){
+        return commentRepository.findByDiaryId(diaryId);
+    }
 
 }

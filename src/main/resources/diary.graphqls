@@ -1,0 +1,56 @@
+type Query{
+    #랜덤일기 띄우기 공개인것만!
+    getDiaryList:[Diary]
+    #유저의 일기목록
+    getDiaryListByUsr(usrId: String!): [Diary]
+    # 캘린더에서 날짜 선택한 경우 등 단건조회
+    getDiaryById(id: Int!):Diary
+    # 각 월별 조회
+    getDiaryByMonth(yyyymm: String!):[Diary]
+
+    #    본인일기면 댓글 모두 조회
+    getComments(diaryId :Int!):[Comment]
+    #    아니면 댓글 안보임
+    #
+    #    댓글 등록/수정/삭제
+
+    getFavorite(usrId:String! diaryId:Int!):Favorite
+}
+
+type Mutation{
+    saveDiary(usrId:String!, title:String!, content:String!, feelings:String!, category: String!
+    publicYN:String!):Boolean
+    saveComment(usrId:String!,diaryId:Int!, content:String!):Boolean
+    saveFavorite(usrId:String! diaryId:Int!):Boolean
+}
+
+type Diary{
+    id:Int
+    usr:Usr
+    title: String
+    content: String
+    feelings: String
+    photo1: String
+    photo2: String
+    photo3: String
+    category: String
+    publicYN : String
+    regDtm : String
+}
+type Comment{
+    content:String
+    usr:Usr
+    diary:Diary
+}
+
+type Usr{
+    id:String
+    name:String
+}
+
+type Favorite{
+    usr:Usr
+    diary:Diary
+    regDtm:String
+    updtDtm:String
+}

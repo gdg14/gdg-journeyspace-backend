@@ -1,6 +1,7 @@
 type Query{
     #랜덤일기 띄우기 공개인것만!
     getDiaryList:[Diary]
+    getDiaryRandom:Diary
     #유저의 일기목록
     getDiaryListByUsr(usrId: String!): [Diary]
     # 캘린더에서 날짜 선택한 경우 등 단건조회

@@ -1,5 +1,5 @@
 type Query{
-    #랜덤일기 띄우기 공개인것만
+    #랜덤일기 띄우기 공개인것만!
     getDiaryList:[Diary]
     #유저의 일기목록
     getDiaryListByUsr(usrId: String!): [Diary]

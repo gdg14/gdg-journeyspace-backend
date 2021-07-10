@@ -1,4 +1,4 @@
-resources/*.properties
+resources/application-db.properties
 /.idea
 /.gradle
 /build

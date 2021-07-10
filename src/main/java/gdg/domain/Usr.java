@@ -1,9 +1,17 @@
 package gdg.domain;
 
-import javax.persistence.Entity;
+import lombok.Getter;
 
+import javax.persistence.*;
+
+@Getter
 @Entity
+@Table(name = "USR")
 public class Usr {
-    Long id;
-    String name;
+    @Id
+    @Column(name = "USR_ID")
+    private String id;
+
+    @Column(name = "NAME")
+    private String name;
 }

@@ -1,17 +1,20 @@
 package gdg.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import lombok.Getter;
 
+import javax.persistence.*;
+
+@Getter
 @Entity
+@Table(name = "BOOKMARK")
 public class Bookmark extends BaseTimeEntity{
+    @Id
     @Column(name = "BOOKMARK_ID")
     private Long id;
     @ManyToOne
-    @Column(name = "USR_ID")
+    @JoinColumn(name = "USR_ID")
     private Usr usr;
     @ManyToOne
-    @Column(name = "DIARY_ID")
+    @JoinColumn(name = "DIARY_ID")
     private Diary diary;
 }

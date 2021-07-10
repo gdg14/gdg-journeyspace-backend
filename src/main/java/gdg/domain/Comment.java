@@ -1,8 +1,12 @@
 package gdg.domain;
 
+import lombok.Getter;
+
 import javax.persistence.*;
 
+@Getter
 @Entity
+@Table(name = "COMMENT")
 public class Comment extends BaseTimeEntity{
 
     @Id
@@ -19,5 +23,5 @@ public class Comment extends BaseTimeEntity{
     private Diary diaryId;
 
     @Column(name = "CONTENT")
-    private String Content;
+    private String content;
 }

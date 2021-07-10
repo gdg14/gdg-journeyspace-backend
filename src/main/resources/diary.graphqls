@@ -33,8 +33,9 @@ type Diary{
     photo3: String
     category: String
     publicYN : String
+    regDtm : String
 }
-
+# 다른사람이 쓴 댓글은 안보이게..
 type Comment{
     content:String
     usr:Usr
@@ -45,4 +46,3 @@ type Usr{
     id:String
     name:String
 }
-
